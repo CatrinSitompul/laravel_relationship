@@ -10,12 +10,12 @@ class UserController extends Controller
     public function index()
     {
        // Join users dengan profiles menggunakan query builder
-        $users = User::join('profiles', 'users.id', '=', 'profiles.user_id')
-                     ->select('users.*', 'profiles.address', 'profiles.phone')
-                     ->get();
+        // $users = User::join('profiles', 'users.id', '=', 'profiles.user_id')
+        //              ->select('users.*', 'profiles.address', 'profiles.phone')
+        //              ->get();
 
-       // $users = User::with('profile')->get();
-        dd($users);
+       $users = User::with('profile')->get();
+        // dd($users);
         return view('users.index', compact('users'));
     }
 }

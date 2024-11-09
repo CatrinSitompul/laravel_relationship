@@ -17,9 +17,13 @@
                 <tr>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
-                    <td>{{ $user->address }}</td>
-                    <td>{{ $user->phone }}</td>
+                    {{-- <td>{{ $user->address }}</td> --}}
+                    <td>{{ optional($user->profile)->address}}</td>
+                    {{-- <td>{{ $user->phone }}</td> --}}
+                    <td>{{ optional($user->profile)->phone}}</td>
                 </tr>
+
+                
             @endforeach
         </tbody>
     </table>
